@@ -1,0 +1,2 @@
+# hibernate-db
+Hibernate project
