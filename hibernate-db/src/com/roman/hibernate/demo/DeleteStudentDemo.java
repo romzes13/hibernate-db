@@ -33,28 +33,21 @@ public class DeleteStudentDemo {
 			
 			Student myStudent = session.get(Student.class, studentId);
 			
-			System.out.println("Updating student...");
-			myStudent.setFirstName("Maria");
 			
+			// delete the student
+			//System.out.println("\nDeleting Student: " + myStudent);
+			//session.delete(myStudent);
 			
+			// delete student with id 2
+			
+			System.out.println("Deleting student id=2");
+			session.createQuery("delete from Student where id=2").executeUpdate();
 			
 			// commit transaction
 			session.getTransaction().commit();
 			System.out.println("Done!");
 			
-			// New code 
-			
-			session = factory.getCurrentSession();
-			session.beginTransaction();
-			
-			// Updating emails for all students
-			
-			System.out.println("\nUpdating all emails...\n");
-			
-			session.createQuery("update Student set email='myemail@email.ru'").executeUpdate();
-			
-			
-			session.getTransaction().commit();
+	
 			
 		}
 			finally {
